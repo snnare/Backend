@@ -6,7 +6,7 @@ import cookieParser from 'cookie-parser'
 import cors from 'cors'
 
 
-const FRONT_URL = "http://187.190.193.53:8081";
+const FRONT_URL = "http://0.0.0.0:8081";
 
 
 const  app = express()
