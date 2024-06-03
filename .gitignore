@@ -3,6 +3,9 @@
 # dependencies
 node_modules/
 
+# No subir el Front we
+Frontend/
+
 # Expo
 .expo/
 dist/
