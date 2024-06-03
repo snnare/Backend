@@ -1,0 +1,1 @@
+export const TOKEN_SECRET = 'ya ponganos 10 :))'
