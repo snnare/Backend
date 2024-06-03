@@ -11,10 +11,7 @@ const FRONT_URL = "http://0.0.0.0:8081";
 
 const  app = express()
 
-app.use(cors({
-    credentials: true,
-    origin: "*"
-}))
+app.use(cors())
 app.use(morgan('dev'))
 app.use(express.json())
 app.use(cookieParser())
