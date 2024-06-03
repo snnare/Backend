@@ -12,7 +12,8 @@ const FRONT_URL = "http://187.190.193.53:8081";
 const  app = express()
 
 app.use(cors({
-    credentials: true
+    credentials: true,
+    origin: "*"
 }))
 app.use(morgan('dev'))
 app.use(express.json())
