@@ -10,24 +10,27 @@ import cors from 'cors'
 
 // URLs del frontend
 const ALLOWED_ORIGINS = [
-    "http://[2806:2f0:9021:cb34:41b3:d385:5246:d5b9]:8081", // IPv6
     "http://192.168.100.82:8081", // IPv4 local
     "http://187.190.193.53:8081",// IPv4 pública 
 ]
 
 
+
+// Configuración de CORS
+const corsOptions = {
+    origin: (origin, callback) => {
+      // Permite cualquier origen
+      callback(null, true);
+    },
+    credentials: true, // Esto permite el uso de credenciales (cookies)
+    optionsSuccessStatus: 200, // Para asegurar compatibilidad con navegadores legacy (algunos exploran el status 204)
+  };
+
+
+
 const  app = express()
 
-app.use(cors({
-    credentials: true,
-    origin: (origin, callback) => {
-        if(ALLOWED_ORIGINS.includes(origin) || !origin){
-            callback(null, true)
-        } else{
-            callback(new Error('Not allowed by CORS'))
-        }
-    }
-}))
+app.use(cors(corsOptions))
 app.use(morgan('dev'))
 app.use(express.json())
 app.use(cookieParser())
